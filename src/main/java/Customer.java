@@ -11,10 +11,8 @@ public class Customer {
         return this.name;
     }
 
-
     public boolean hasLoyaltyCard() {
         return this.loyaltyCard;
     }
-
 
 }

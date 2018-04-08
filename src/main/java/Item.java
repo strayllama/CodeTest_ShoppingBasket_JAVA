@@ -7,15 +7,14 @@ public class Item {
         this.name = name;
         this.price = price;
         this.bogof = bogof;
-
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getPrice() {
-        return price;
+        return this.price;
     }
 
     public boolean isBogof() {

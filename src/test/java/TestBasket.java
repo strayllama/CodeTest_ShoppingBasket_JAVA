@@ -30,7 +30,7 @@ public class TestBasket {
         basket.addItem(item1);
         basket.addItem(item1);
         basket.addItem(item1);
-        assertEquals(500, basket.getNumberOfItems());
+        assertEquals(5, basket.getNumberOfItems());
     }
 
     @Test
@@ -42,9 +42,9 @@ public class TestBasket {
     public void testCanRemoveFromBasket() {
         basket.addItem(item1);
         basket.addItem(item2);
-        assertEquals(200, basket.getNumberOfItems());
+        assertEquals(2, basket.getNumberOfItems());
         basket.removeItem(item1);
-        assertEquals(100, basket.getNumberOfItems());
+        assertEquals(1, basket.getNumberOfItems());
     }
 
     @Test
@@ -88,24 +88,25 @@ public class TestBasket {
 
     @Test
     public void testGet10percentDiscountOVer20pounds() {
-        Item item4 = new Item("Mug", 200, true);
-        Item item5 = new Item("Lunch Box", 1000, false);
-        basket.addItem(item4);
-        basket.addItem(item5);
-        basket.addItem(item5);
-        basket.listItemsInBasket();
-        assertEquals(1980, basket.getTotalPrice(), 0.01);
+        Customer customer2 = new Customer("Bill", false);
+        Basket basket2 = new Basket(customer2);
+        Item item4 = new Item("Hat", 200, false);
+        Item item5 = new Item("Jumper", 1000, false);
+        basket2.addItem(item4);
+        basket2.addItem(item5);
+        basket2.addItem(item5);
+        assertEquals(1980, basket2.getTotalPrice(), 0.01);
     }
 
     @Test
     public void testGet2percentOffIfHasLoyaltyCard() {
-        Customer customer2 = new Customer("Jane", true);
-        Basket basket2 = new Basket(customer2);
+        Customer customer3 = new Customer("Jane", true);
+        Basket basket3 = new Basket(customer3);
         item1 = new Item("Mars Bar", 100, true);
         item2 = new Item("Tin Foil", 300, false);
-        basket2.addItem(item1);
-        basket2.addItem(item2);
-        assertEquals(true, basket2.hasLoyalityCard());
-        assertEquals(392, basket2.getTotalPrice(), 0.01);
+        basket3.addItem(item1);
+        basket3.addItem(item2);
+        assertEquals(true, basket3.hasLoyalityCard());
+        assertEquals(392, basket3.getTotalPrice(), 0.01);
     }
 }
