@@ -20,7 +20,7 @@ public class TestBasket {
 
     @Test
     public void testBasketHasCustomer() {
-        assertEquals("Steve", basket.getCustomerName());
+        assertEquals(customer, basket.getCustomer());
     }
 
     @Test
@@ -33,10 +33,6 @@ public class TestBasket {
         assertEquals(5, basket.getNumberOfItems());
     }
 
-    @Test
-    public void testBasketKnowsOfCustomersLoyalityCard() {
-        assertEquals(false, basket.hasLoyalityCard());
-    }
 
     @Test
     public void testCanRemoveFromBasket() {
@@ -106,7 +102,6 @@ public class TestBasket {
         item2 = new Item("Tin Foil", 300, false);
         basket3.addItem(item1);
         basket3.addItem(item2);
-        assertEquals(true, basket3.hasLoyalityCard());
         assertEquals(392, basket3.getTotalPrice(), 0.01);
     }
 }
